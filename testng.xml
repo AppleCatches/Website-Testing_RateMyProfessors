@@ -24,11 +24,11 @@
             </class>
             <class name="org.example.valid_ratings">
                 <methods>
-                    <include name="RP11_SubmitQualityRating"></include>
-                    <include name="RP12_SubmitDifficultyRating"></include>
-                    <include name="RP13_SubmitAnonymously"></include>
-                    <include name="RP14_SubmitWhileLoggedIn"></include>
-                    <include name="RP15_SelectCourseDropdown"></include>
+                    <include name="RP11_NavigateToRating"></include>
+                    <include name="RP12_CourseCodeAndRating"></include>
+                    <include name="RP13_SelectRadiosAndGrade"></include>
+                    <include name="RP14_TagsAndReview"></include>
+                    <include name="RP15_SubmitReview"></include>
                 </methods>
             </class>
             <class name="org.example.invalid_ratings">

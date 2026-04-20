@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="finalProjectRateMyProfessors(failed)">
     <classes>
-      <class name="org.example.search">
+      <class name="org.example.valid_ratings">
         <methods>
-          <include name="RP07_SearchSchoolByName"/>
+          <include name="RP13_SelectRadiosAndGrade"/>
           <include name="tearDownSuite"/>
-          <include name="RP08_SearchProfessorByName"/>
           <include name="setupSuite"/>
         </methods>
-      </class> <!-- org.example.search -->
+      </class> <!-- org.example.valid_ratings -->
     </classes>
   </test> <!-- finalProjectRateMyProfessors(failed) -->
 </suite> <!-- Failed suite [Default Suite] -->

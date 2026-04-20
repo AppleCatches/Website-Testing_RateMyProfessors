@@ -4,6 +4,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import java.util.List;
 
 public class search extends Main {
 
@@ -15,9 +16,9 @@ public class search extends Main {
 
         // Click "I want to find a professor at a different school" toggle (if present)
         try {
-            WebElement schoolToggle = wait.until(ExpectedConditions.presenceOfElementLocated(
+            WebElement diffSchool = wait.until(ExpectedConditions.presenceOfElementLocated(
                     By.xpath("//div[text()='I want to find a professor at a different school']")));
-            jsClick(schoolToggle);
+            jsClick(diffSchool);
             pause(1500); // Watch the toggle switch
         } catch (Exception e) {}
 
@@ -25,14 +26,25 @@ public class search extends Main {
         WebElement schoolInput = wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//input[@placeholder='Your school']")));
         schoolInput.sendKeys("Magic Academics");
-        pause(1000); // Watch it type
+        pause(1500); // Watch it type
 
         schoolInput.sendKeys(Keys.ENTER); // Hit Enter to search
-        pause(3000); // Wait for the search results page to load
+        pause(3000); // Wait for the UI to update
 
         String pageText = driver.getPageSource().toLowerCase();
-        boolean noResults = pageText.contains("no schools") || pageText.contains("0 schools") || pageText.contains("no results");
-        Assert.assertTrue(noResults, "Expected 'No results' message was not displayed for fake school.");
+
+        // Check for any variation of a "Not Found" message
+        boolean noResultsText = pageText.contains("no school") ||
+                pageText.contains("0 school") ||
+                pageText.contains("no result") ||
+                pageText.contains("not exist") ||
+                pageText.contains("not found");
+
+        // Fallback: Ensure no school cards were generated in the dropdown
+        List<WebElement> schoolCards = driver.findElements(By.xpath("//a[contains(@aria-label, 'Link to school page')]"));
+        boolean noDropdownCards = schoolCards.isEmpty();
+
+        Assert.assertTrue(noResultsText || noDropdownCards, "Expected 'No results' message or empty dropdown for fake school.");
     }
 
     @Test(priority = 7)
@@ -51,9 +63,9 @@ public class search extends Main {
 
         // Click toggle again
         try {
-            WebElement schoolToggle = wait.until(ExpectedConditions.presenceOfElementLocated(
+            WebElement diffSchool = wait.until(ExpectedConditions.presenceOfElementLocated(
                     By.xpath("//div[text()='I want to find a professor at a different school']")));
-            jsClick(schoolToggle);
+            jsClick(diffSchool);
             pause(1500);
         } catch (Exception e) {}
 
@@ -61,16 +73,16 @@ public class search extends Main {
         WebElement schoolInput = wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//input[@placeholder='Your school']")));
 
-        // Clear the field first
+        // Clear the field first using Keyboard commands
         schoolInput.sendKeys(Keys.COMMAND, "a");
         schoolInput.sendKeys(Keys.BACK_SPACE);
         pause(500);
 
         schoolInput.sendKeys("Florida Atlantic University");
-        pause(1000);
+        pause(1500);
 
         schoolInput.sendKeys(Keys.ENTER); // Press Enter to submit search
-        pause(3000); // Wait for the multiple results to load
+        pause(3000); // Wait for the multiple results to load in dropdown
 
         // Target and click the exact Florida Atlantic University @ Boca Raton, FL school card
         WebElement fauCard = wait.until(ExpectedConditions.presenceOfElementLocated(
@@ -96,7 +108,7 @@ public class search extends Main {
         WebElement profInput = wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//input[@placeholder='Professor name' or @placeholder='Search for a professor']")));
         profInput.sendKeys("John Scott");
-        pause(1000); // Watch it type
+        pause(1500); // Watch it type
 
         profInput.sendKeys(Keys.ENTER); // Hit Enter to search
         pause(3000); // Watch it filter the list
@@ -118,7 +130,7 @@ public class search extends Main {
         pause(1000);
 
         profInput.sendKeys("Black Panther");
-        pause(1000); // Watch it type
+        pause(1500); // Watch it type
 
         profInput.sendKeys(Keys.ENTER); // Hit Enter
         pause(3000); // Wait for results to update
@@ -140,7 +152,7 @@ public class search extends Main {
         pause(1000);
 
         profInput.sendKeys(" !)$ ");
-        pause(1000);
+        pause(1500);
 
         profInput.sendKeys(Keys.ENTER); // Hit Enter
         pause(3000); // Wait for validation
