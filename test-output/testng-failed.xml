@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="finalProjectRateMyProfessors(failed)">
+    <classes>
+      <class name="org.example.search">
+        <methods>
+          <include name="RP07_SearchSchoolByName"/>
+          <include name="tearDownSuite"/>
+          <include name="RP08_SearchProfessorByName"/>
+          <include name="setupSuite"/>
+        </methods>
+      </class> <!-- org.example.search -->
+    </classes>
+  </test> <!-- finalProjectRateMyProfessors(failed) -->
+</suite> <!-- Failed suite [Default Suite] -->

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="/Users/denisepierre/IdeaProjects/finalProjectRateMyProfessors/src/main/java">
+        <classes>
+            <class name="org.example.login">
+                <methods>
+                    <include name="RP01_ValidLogin"></include>
+                    <include name="RP02_Logout"></include>
+                    <include name="RP03_InvalidPassword"></include>
+                    <include name="RP04_NonExistentEmail"></include>
+                    <include name="RP05_ForgotPassword"></include>
+                </methods>
+            </class>
+            <class name="org.example.search">
+                <methods>
+                    <include name="RP06_SearchSchoolByName"></include>
+                    <include name="RP07_SearchNonExistentSchool"></include>
+                    <include name="RP08_SearchProfessorByName"></include>
+                    <include name="RP09_SearchNonExistentProfessor"></include>
+                    <include name="RP10_SearchSpecialCharacters"></include>
+                </methods>
+            </class>
+            <class name="org.example.valid_ratings">
+                <methods>
+                    <include name="RP11_SubmitQualityRating"></include>
+                    <include name="RP12_SubmitDifficultyRating"></include>
+                    <include name="RP13_SubmitAnonymously"></include>
+                    <include name="RP14_SubmitWhileLoggedIn"></include>
+                    <include name="RP15_SelectCourseDropdown"></include>
+                </methods>
+            </class>
+            <class name="org.example.invalid_ratings">
+                <methods>
+                    <include name="RP16_EmptyRatingForm"></include>
+                    <include name="RP17_MissingQualityScore"></include>
+                    <include name="RP18_InvalidNumericValue"></include>
+                    <include name="RP19_MissingCourseSelection"></include>
+                    <include name="RP20_SubmitWithoutLogin"></include>
+                </methods>
+            </class>
+            <class name="org.example.professor_profile">
+                <methods>
+                    <include name="RP21_ViewWouldTakeAgain"></include>
+                    <include name="RP22_ViewTotalRatings"></include>
+                    <include name="RP23_ViewTopTags"></include>
+                    <include name="RP24_ViewReviewsDescending"></include>
+                    <include name="RP25_ViewCourseList"></include>
+                </methods>
+            </class>
+            <class name="org.example.user_profile">
+                <methods>
+                    <include name="RP26_ViewSubmittedReviews"></include>
+                    <include name="RP27_DeleteReview"></include>
+                    <include name="RP28_ChangeUsername"></include>
+                    <include name="RP29_ChangeMySchool"></include>
+                    <include name="RP30_AccessSettings"></include>
+                </methods>
+            </class>
+            <class name="org.example.navigation">
+                <methods>
+                    <include name="RP31_ClickLogoToHome"></include>
+                    <include name="RP32_NavigateFindSchool"></include>
+                    <include name="RP33_NavigateFindProfessor"></include>
+                    <include name="RP34_CheckFooterLinks"></include>
+                    <include name="RP35_VerifyAccessibilityTab"></include>
+                </methods>
+            </class>
+            <class name="org.example.sorting">
+                <methods>
+                    <include name="RP36_SortHighestRating"></include>
+                    <include name="RP37_SortLowestRating"></include>
+                    <include name="RP38_SortMostRatings"></include>
+                    <include name="RP39_SortOldest"></include>
+                    <include name="RP40_SortHighestQuality"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
