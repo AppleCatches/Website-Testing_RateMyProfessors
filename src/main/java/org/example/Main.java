@@ -45,8 +45,14 @@ public class Main {
         }
     }
 
+    // NEW: Scrolls the webpage so the element is perfectly centered on your screen
+    public void scrollToElement(WebElement element) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element);
+        pause(500); // Give the browser a half-second to scroll before acting
+    }
+
     public void jsClick(WebElement element) {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
+        scrollToElement(element);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
     }
 
@@ -58,7 +64,7 @@ public class Main {
             System.out.println("AdBlocker popup dismissed.");
             pause(1500);
         } catch (Exception e) {
-            // System.out.println("No AdBlocker popup found.");
+            System.out.println("No AdBlocker popup found.");
         }
     }
 
@@ -67,17 +73,14 @@ public class Main {
         pause(2000);
 
         try {
-            // Check for the specific 'Log In' button
             WebElement loginBtn = driver.findElement(By.cssSelector("button[data-testid='modal-button-link']"));
             if (loginBtn.isDisplayed()) return;
         } catch (Exception e) {
             try {
-                // Click 'Hey, CEN4072' AccountButton
                 WebElement profileMenu = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("button[data-testid='AccountButton']")));
                 jsClick(profileMenu);
                 pause(1000);
 
-                // Click Logout
                 WebElement logoutBtn = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[text()='Logout']")));
                 jsClick(logoutBtn);
                 pause(2000);
@@ -92,17 +95,14 @@ public class Main {
         pause(2000);
 
         try {
-            // Check for the specific 'Hey, CEN4072' button
             WebElement profileMenu = driver.findElement(By.cssSelector("button[data-testid='AccountButton']"));
             if (profileMenu.isDisplayed()) return;
         } catch (Exception e) {
             try {
-                // Click 'Log In' button
                 WebElement loginNavBtn = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("button[data-testid='modal-button-link']")));
                 jsClick(loginNavBtn);
                 pause(1500);
 
-                // Fill credentials
                 WebElement emailInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("email")));
                 emailInput.sendKeys("bleutray@gmail.com");
                 pause(500);
@@ -111,7 +111,6 @@ public class Main {
                 passwordInput.sendKeys("crn10421");
                 pause(500);
 
-                // Click Continue
                 WebElement continueBtn = driver.findElement(By.xpath("//button[text()='Continue']"));
                 jsClick(continueBtn);
 

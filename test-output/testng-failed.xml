@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="finalProjectRateMyProfessors(failed)">
     <classes>
-      <class name="org.example.valid_ratings">
+      <class name="org.example.invalid_ratings">
         <methods>
-          <include name="RP13_SelectRadiosAndGrade"/>
           <include name="tearDownSuite"/>
           <include name="setupSuite"/>
+          <include name="RP17_ExceedMaxCharacters"/>
         </methods>
-      </class> <!-- org.example.valid_ratings -->
+      </class> <!-- org.example.invalid_ratings -->
     </classes>
   </test> <!-- finalProjectRateMyProfessors(failed) -->
 </suite> <!-- Failed suite [Default Suite] -->

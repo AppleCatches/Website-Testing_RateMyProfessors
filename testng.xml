@@ -34,9 +34,9 @@
             <class name="org.example.invalid_ratings">
                 <methods>
                     <include name="RP16_EmptyRatingForm"></include>
-                    <include name="RP17_MissingQualityScore"></include>
-                    <include name="RP18_InvalidNumericValue"></include>
-                    <include name="RP19_MissingCourseSelection"></include>
+                    <include name="RP17_ExceedMaxCharacters"></include>
+                    <include name="RP18_DuplicateRating"></include>
+                    <include name="RP19_BlankCourseCode"></include>
                     <include name="RP20_SubmitWithoutLogin"></include>
                 </methods>
             </class>
