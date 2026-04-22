@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="finalProjectRateMyProfessors(failed)">
     <classes>
-      <class name="org.example.professor_profile">
+      <class name="org.example.class6_user_profile">
         <methods>
           <include name="tearDownSuite"/>
-          <include name="RP25_CompareProfessor"/>
+          <include name="RP30_EditUserReview"/>
           <include name="setupSuite"/>
-          <include name="RP23_FilterReviewsByCourse"/>
         </methods>
-      </class> <!-- org.example.professor_profile -->
+      </class> <!-- org.example.class6_user_profile -->
     </classes>
   </test> <!-- finalProjectRateMyProfessors(failed) -->
 </suite> <!-- Failed suite [Default Suite] -->

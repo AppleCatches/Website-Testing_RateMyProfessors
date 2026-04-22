@@ -17,6 +17,8 @@ public class Main {
     @BeforeSuite
     public void setupSuite() {
         FirefoxOptions options = new FirefoxOptions();
+
+        // using my user profile with adblocker to disable ad popups
         String profilePath = "/Users/denisepierre/Library/Application Support/Firefox/Profiles/6ixoyzs3.default-release";
         options.addArguments("-profile", profilePath);
 
@@ -25,7 +27,7 @@ public class Main {
         driver.manage().window().maximize();
         driver.get("https://www.ratemyprofessors.com/");
 
-        dismissAdBlockerPopup();
+        // dismissAdBlockerPopup();
     }
 
     @AfterSuite
@@ -45,10 +47,10 @@ public class Main {
         }
     }
 
-    // NEW: Scrolls the webpage so the element is perfectly centered on your screen
+    // Scoll through webpage to view element
     public void scrollToElement(WebElement element) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element);
-        pause(500); // Give the browser a half-second to scroll before acting
+        pause(500);
     }
 
     public void jsClick(WebElement element) {
@@ -56,17 +58,19 @@ public class Main {
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
     }
 
+    /*
     public void dismissAdBlockerPopup() {
         try {
             WebElement continueBtn = wait.until(ExpectedConditions.presenceOfElementLocated(
                     By.xpath("//button[contains(text(), 'Continue Without Supporting')]")));
             jsClick(continueBtn);
-            System.out.println("AdBlocker popup dismissed.");
+            System.out.println("\nAdBlocker popup dismissed.\n");
             pause(1500);
         } catch (Exception e) {
-            System.out.println("No AdBlocker popup found.");
+            System.out.println("\nNo AdBlocker popup found.\n");
         }
     }
+     */
 
     public void ensureLoggedOut() {
         driver.get("https://www.ratemyprofessors.com/");
@@ -85,7 +89,7 @@ public class Main {
                 jsClick(logoutBtn);
                 pause(2000);
             } catch (Exception ex) {
-                System.out.println("Could not perform logout sequence.");
+                System.out.println("Could not perform logout.");
             }
         }
     }
@@ -116,7 +120,7 @@ public class Main {
 
                 pause(3000);
             } catch (Exception ex) {
-                System.out.println("Could not perform login sequence.");
+                System.out.println("Could not perform login.");
             }
         }
     }

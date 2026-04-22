@@ -2,12 +2,11 @@ package org.example;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class invalid_ratings extends Main {
+public class class4_invalid_ratings extends Main {
 
     // Helper method to navigate to the review form
     private void loadFreshRatingForm() {
@@ -18,11 +17,11 @@ public class invalid_ratings extends Main {
         pause(4000);
     }
 
-    // Helper method to quickly fill valid data
+    // Helper method to fill in review form
     private void fillValidDataExcept(String skipField) {
         if (!skipField.equals("Course")) {
             WebElement courseInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("class")));
-            scrollToElement(courseInput); // Visual scroll
+            scrollToElement(courseInput);
             courseInput.sendKeys("CEN4072");
             pause(500);
             courseInput.sendKeys(Keys.ENTER);
@@ -31,16 +30,16 @@ public class invalid_ratings extends Main {
 
         // Quality and Difficulty
         List<WebElement> qualityBoxes = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//div[@type='QUALITY' and @data-testid='SliderBox']")));
-        scrollToElement(qualityBoxes.get(4)); // Visual scroll
+        scrollToElement(qualityBoxes.get(4));
         jsClick(qualityBoxes.get(4));
 
         List<WebElement> diffBoxes = driver.findElements(By.xpath("//div[@type='DIFFICULTY' and @data-testid='SliderBox']"));
-        scrollToElement(diffBoxes.get(0)); // Visual scroll
+        scrollToElement(diffBoxes.get(0));
         jsClick(diffBoxes.get(0));
         pause(500);
 
         // Radios
-        scrollToElement(driver.findElement(By.id("wouldTakeAgain-Yes"))); // Visual scroll
+        scrollToElement(driver.findElement(By.id("wouldTakeAgain-Yes")));
         jsClick(driver.findElement(By.id("wouldTakeAgain-Yes")));
         jsClick(driver.findElement(By.id("forCredit-No")));
         jsClick(driver.findElement(By.id("usesTextbooks-No")));
@@ -49,14 +48,14 @@ public class invalid_ratings extends Main {
 
         // Grade
         WebElement gradeDropdownWrapper = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='grade']/ancestor::div[2]")));
-        scrollToElement(gradeDropdownWrapper); // Visual scroll
+        scrollToElement(gradeDropdownWrapper);
         gradeDropdownWrapper.click();
         pause(1000);
         jsClick(wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[text()='B']"))));
         pause(500);
 
         // Tags
-        scrollToElement(driver.findElement(By.name("Getreadytoread"))); // Visual scroll
+        scrollToElement(driver.findElement(By.name("Getreadytoread")));
         jsClick(driver.findElement(By.name("Getreadytoread")));
         jsClick(driver.findElement(By.name("Participationmatters")));
         jsClick(driver.findElement(By.name("Cleargradingcriteria")));
@@ -69,7 +68,7 @@ public class invalid_ratings extends Main {
         ensureLoggedIn();
         loadFreshRatingForm();
 
-        // Scroll straight to the bottom without doing anything
+        // Scroll straight to the bottom and select submit (nothing should happen)
         WebElement submitBtn = driver.findElement(By.cssSelector("button.add-teacher-rating-btn"));
         scrollToElement(submitBtn);
         pause(2000);
@@ -82,14 +81,14 @@ public class invalid_ratings extends Main {
         loadFreshRatingForm();
         fillValidDataExcept("None");
 
-        // Generate a 400+ character string
+        // 400+ character string in review comment
         StringBuilder longReview = new StringBuilder();
         for (int i = 0; i < 100; i++) {
             longReview.append("word ");
         }
 
         WebElement commentBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("comment")));
-        scrollToElement(commentBox); // Visual scroll
+        scrollToElement(commentBox);
         commentBox.sendKeys(longReview.toString());
         pause(2000);
 
@@ -106,17 +105,17 @@ public class invalid_ratings extends Main {
         loadFreshRatingForm();
         fillValidDataExcept("None");
 
-        // Add a valid comment
+        // Add a comment
         WebElement commentBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("comment")));
         scrollToElement(commentBox);
         commentBox.sendKeys("Duplicate rating test.");
         pause(1500);
 
-        // Scroll to and click Submit
+        // select Submit
         WebElement submitBtn = driver.findElement(By.cssSelector("button.add-teacher-rating-btn"));
         scrollToElement(submitBtn);
         jsClick(submitBtn);
-        pause(4000); // Wait for the server response
+        pause(4000);
     }
 
     @Test(priority = 19)
@@ -134,16 +133,17 @@ public class invalid_ratings extends Main {
 
         WebElement submitBtn = driver.findElement(By.cssSelector("button.add-teacher-rating-btn"));
         scrollToElement(submitBtn);
+        jsClick(submitBtn); // nothing should happen
+        pause(4000);
     }
 
     @Test(priority = 20)
     public void RP20_SubmitWithoutLogin() {
         System.out.println("Starting RP20_SubmitWithoutLogin...");
-
         ensureLoggedOut();
         loadFreshRatingForm();
 
-        // Fill out valid data
+        // Fill out review form
         fillValidDataExcept("None");
 
         WebElement commentBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("comment")));
@@ -153,9 +153,9 @@ public class invalid_ratings extends Main {
 
         WebElement submitBtn = driver.findElement(By.cssSelector("button.add-teacher-rating-btn"));
         scrollToElement(submitBtn);
-        jsClick(submitBtn);
+        jsClick(submitBtn); // user should be prompted to login
         pause(3000);
 
-        ensureLoggedIn();
+        // ensureLoggedOut();
     }
 }

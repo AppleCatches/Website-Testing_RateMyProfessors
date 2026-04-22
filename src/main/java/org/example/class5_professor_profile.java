@@ -5,7 +5,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class professor_profile extends Main {
+public class class5_professor_profile extends Main {
 
     @Test(priority = 21)
     public void RP21_NavigateToProfessorProfile() {
