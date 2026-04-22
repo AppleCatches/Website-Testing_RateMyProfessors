@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="finalProjectRateMyProfessors(failed)">
     <classes>
-      <class name="org.example.class6_user_profile">
+      <class name="org.example.class7_navigation">
         <methods>
+          <include name="RP34_ScrollPageUpDown"/>
           <include name="tearDownSuite"/>
-          <include name="RP30_EditUserReview"/>
           <include name="setupSuite"/>
         </methods>
-      </class> <!-- org.example.class6_user_profile -->
+      </class> <!-- org.example.class7_navigation -->
     </classes>
   </test> <!-- finalProjectRateMyProfessors(failed) -->
 </suite> <!-- Failed suite [Default Suite] -->

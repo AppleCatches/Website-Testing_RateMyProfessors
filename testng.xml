@@ -42,20 +42,20 @@
             </class>
             <class name="org.example.class5_professor_profile">
                 <methods>
-                    <include name="RP21_ViewWouldTakeAgain"></include>
-                    <include name="RP22_ViewTotalRatings"></include>
-                    <include name="RP23_ViewTopTags"></include>
-                    <include name="RP24_ViewReviewsDescending"></include>
-                    <include name="RP25_ViewCourseList"></include>
+                    <include name="RP21_NavigateToProfessorProfile"></include>
+                    <include name="RP22_SaveProfessor"></include>
+                    <include name="RP23_FilterReviewsByCourse"></include>
+                    <include name="RP24_LoadMoreRatings"></include>
+                    <include name="RP25_CompareProfessor"></include>
                 </methods>
             </class>
             <class name="org.example.class6_user_profile">
                 <methods>
-                    <include name="RP26_ViewSubmittedReviews"></include>
-                    <include name="RP27_DeleteReview"></include>
-                    <include name="RP28_ChangeUsername"></include>
-                    <include name="RP29_ChangeMySchool"></include>
-                    <include name="RP30_AccessSettings"></include>
+                    <include name="RP26_AddSavedProfessors"></include>
+                    <include name="RP27_RemoveSavedProfessors"></include>
+                    <include name="RP28_EditUserProfile"></include>
+                    <include name="RP29_ChangeUserPassword"></include>
+                    <include name="RP30_EditUserReview"></include>
                 </methods>
             </class>
             <class name="org.example.class7_navigation">
@@ -63,8 +63,8 @@
                     <include name="RP31_ClickLogoToHome"></include>
                     <include name="RP32_NavigateFindSchool"></include>
                     <include name="RP33_NavigateFindProfessor"></include>
-                    <include name="RP34_CheckFooterLinks"></include>
-                    <include name="RP35_VerifyAccessibilityTab"></include>
+                    <include name="RP34_ScrollPageUpDown"></include>
+                    <include name="RP35_CheckFooterLinks"></include>
                 </methods>
             </class>
             <class name="org.example.class8_sorting">
