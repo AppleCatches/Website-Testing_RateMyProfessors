@@ -145,7 +145,7 @@ public class class6_user_profile extends Main {
         schoolInput.sendKeys(Keys.COMMAND, "a");
         schoolInput.sendKeys(Keys.BACK_SPACE);
         pause(500);
-        schoolInput.sendKeys("Harvard University");
+        schoolInput.sendKeys("Florida Atlantic University");
         pause(2000); // Wait for the autocomplete dropdown to populate
 
         // Use ARROW_DOWN to physically highlight the dropdown result, then press ENTER to select it
