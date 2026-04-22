@@ -15,8 +15,8 @@
             </class>
             <class name="org.example.search">
                 <methods>
-                    <include name="RP06_SearchSchoolByName"></include>
-                    <include name="RP07_SearchNonExistentSchool"></include>
+                    <include name="RP06_SearchNonExistentSchool"></include>
+                    <include name="RP07_SearchSchoolByName"></include>
                     <include name="RP08_SearchProfessorByName"></include>
                     <include name="RP09_SearchNonExistentProfessor"></include>
                     <include name="RP10_SearchSpecialCharacters"></include>
