@@ -3,13 +3,30 @@
 <suite name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="finalProjectRateMyProfessors(failed)">
     <classes>
-      <class name="org.example.class7_navigation">
+      <class name="org.example.class5_professor_profile">
         <methods>
-          <include name="RP34_ScrollPageUpDown"/>
           <include name="tearDownSuite"/>
+          <include name="RP21_NavigateToProfessorProfile"/>
+          <include name="RP25_CompareProfessor"/>
+          <include name="RP23_FilterReviewsByCourse"/>
           <include name="setupSuite"/>
         </methods>
-      </class> <!-- org.example.class7_navigation -->
+      </class> <!-- org.example.class5_professor_profile -->
+      <class name="org.example.class6_user_profile">
+        <methods>
+          <include name="tearDownSuite"/>
+          <include name="RP30_EditUserReview"/>
+          <include name="setupSuite"/>
+        </methods>
+      </class> <!-- org.example.class6_user_profile -->
+      <class name="org.example.class2_search">
+        <methods>
+          <include name="tearDownSuite"/>
+          <include name="RP10_SearchSpecialCharacters"/>
+          <include name="RP09_SearchNonExistentProfessor"/>
+          <include name="setupSuite"/>
+        </methods>
+      </class> <!-- org.example.class2_search -->
     </classes>
   </test> <!-- finalProjectRateMyProfessors(failed) -->
 </suite> <!-- Failed suite [Default Suite] -->

@@ -10,7 +10,7 @@ public class class1_login extends Main {
     @Test(priority = 1)
     public void RP01_ValidLogin() {
         System.out.println("Starting RP01_ValidLogin...");
-        ensureLoggedOut();
+        // ensureLoggedOut();
         driver.get("https://www.ratemyprofessors.com/");
         pause(2000);
 
@@ -130,6 +130,6 @@ public class class1_login extends Main {
         WebElement resetBtn = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[contains(text(), 'Reset Password')]")));
         Assert.assertTrue(resetBtn.isDisplayed() || resetBtn.isEnabled(), "Reset Password button is not present on the modal.");
 
-        ensureLoggedIn();
+        // ensureLoggedIn();
     }
 }
