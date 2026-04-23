@@ -148,7 +148,7 @@ public class class4_invalid_ratings extends Main {
 
         WebElement commentBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("comment")));
         scrollToElement(commentBox);
-        commentBox.sendKeys("Leave a review without logging in.");
+        commentBox.sendKeys("Leave a review without signing in.");
         pause(1500);
 
         WebElement submitBtn = driver.findElement(By.cssSelector("button.add-teacher-rating-btn"));

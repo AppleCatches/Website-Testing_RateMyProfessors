@@ -73,7 +73,7 @@ public class class8_school_profile extends Main {
         WebElement submitBtn = driver.findElement(By.cssSelector("button.add-school-rating-btn"));
         scrollToElement(submitBtn);
 
-        // jsClick(submitBtn);
+        jsClick(submitBtn);
         pause(2000);
     }
 
@@ -127,15 +127,11 @@ public class class8_school_profile extends Main {
     public void RP40_ThumbUpAndShowMore() {
         System.out.println("Starting RP40_ThumbUpAndShowMore...");
         // Scroll down and click 'Show More' for reviews
-        try {
-            WebElement showMoreBtn = wait.until(ExpectedConditions.presenceOfElementLocated(
-                    By.xpath("//button[contains(text(), 'Show More')]")));
-            scrollToElement(showMoreBtn);
-            jsClick(showMoreBtn);
-            pause(2000);
-        } catch (Exception e) {
-            System.out.println("No 'Show More' button present. Proceeding to thumbs up.");
-        }
+        WebElement showMoreBtn = wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.xpath("//button[contains(text(), 'Show More')]")));
+        scrollToElement(showMoreBtn);
+        jsClick(showMoreBtn);
+        pause(2000);
 
         // Find the 'Helpful' thumbs-up icons and click the first two
         List<WebElement> thumbsUpIcons = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(

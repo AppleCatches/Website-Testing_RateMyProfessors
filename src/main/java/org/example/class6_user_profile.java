@@ -178,7 +178,7 @@ public class class6_user_profile extends Main {
         WebElement saveBtn = driver.findElement(By.xpath("//button[text()='Save Changes']"));
         scrollToElement(saveBtn);
 
-        // jsClick(saveBtn);
+        jsClick(saveBtn);
         pause(3000);
 
         // Assert.assertTrue(true, "Successfully edited user profile.");
@@ -211,7 +211,7 @@ public class class6_user_profile extends Main {
 
         WebElement updateBtn = driver.findElement(By.xpath("//button[text()='Update Password']"));
         scrollToElement(updateBtn);
-        // jsClick(updateBtn);
+        jsClick(updateBtn);
         pause(3000);
 
         System.out.println("Password updated successfully.");
@@ -251,7 +251,7 @@ public class class6_user_profile extends Main {
             // Select Submit Rating
             WebElement submitBtn = driver.findElement(By.cssSelector("button.add-teacher-rating-btn"));
             scrollToElement(submitBtn);
-            // jsClick(submitBtn);
+            jsClick(submitBtn);
             pause(4000);
 
             // Assert.assertTrue(true, "Successfully edited review.");

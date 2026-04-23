@@ -112,7 +112,7 @@ public class class3_valid_ratings extends Main {
 
         WebElement submitBtn = driver.findElement(By.cssSelector("button.add-teacher-rating-btn"));
         scrollToElement(submitBtn);
-        // jsClick(submitBtn);
+        jsClick(submitBtn);
         pause(1500);
 
         ensureLoggedIn();
